@@ -21,13 +21,9 @@
             <td>{{customer.email}}</td>
             <td>{{customer.phoneNo}}</td>
             <td>
-                <!-- <button class="btn-update" routerLink="/customer/{{customer.id}}">Update</button> -->
-                  <button class="btn-update"
-      [routerLink]="['/update-customer',customer.id]">
+                  <button class="btn-update" [routerLink]="['/update-customer',customer.id]">Update</button>
+                  <button class="btn-delete" (click)="deleteCustomer(customer.id)">Delete</button>
 
-      Update
-
-    </button>
             </td>
         </tr>
     </tbody>
