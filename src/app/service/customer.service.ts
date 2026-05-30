@@ -27,6 +27,6 @@ export class CustomerService {
    }
 
    updateCustomer(id: number, customer: any) {
-  return this.http.put(BASIC_URL+ "/api/customer/${id}", customer);
+  return this.http.put(BASIC_URL+ "/api/customer/" + id, customer);
 }
 }

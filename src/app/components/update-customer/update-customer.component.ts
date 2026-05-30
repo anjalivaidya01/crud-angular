@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from 'src/app/service/customer.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class UpdateCustomerComponent implements OnInit {
 
   constructor(private activatedRoute : ActivatedRoute,
     private service :CustomerService,
-    private fb : FormBuilder
+    private fb : FormBuilder,
+    private router : Router
   ) { }
 
   ngOnInit() {
@@ -44,35 +45,29 @@ export class UpdateCustomerComponent implements OnInit {
     })
   }
   
-  // updateCustomer() {
-
-  // if (this.updateCustomerForm.valid) {
-
-  //   this.service.updateCustomer(
-  //     this.id,
-  //     this.updateCustomerForm.value
-  //   ).subscribe(
-  //     (resp) => {
-  //       console.log("Updated Successfully", resp);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-
-  // }
-
   updateCustomer() {
-  console.log("Update button clicked");
 
-  this.service.updateCustomer(
-    this.id,
-    this.updateCustomerForm.value
-  ).subscribe(resp => {
+  this.service.updateCustomer(this.id,this.updateCustomerForm.value).subscribe((resp:any)=>{
     console.log(resp);
-  });
-}
+    if(resp.id != null){
+      this.router.navigateByUrl("/allCustomer");
+
+    }
+  })
+
+  }
+
+//   updateCustomer() {
+//   console.log("Update button clicked");
+
+//   this.service.updateCustomer(
+//     this.id,
+//     this.updateCustomerForm.value
+//   ).subscribe(resp => {
+//     console.log(resp);
+//   });
+// }
+
+
 
 }
-
-
