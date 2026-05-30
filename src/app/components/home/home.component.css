@@ -1,16 +1,78 @@
-.navbar{
-  background-color: #1976d2;
-  color:white;
-  padding:15px;
+/* Full Page Background */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.container{
-  text-align:center;
-  margin-top:50px;
+/* Navbar */
+.navbar {
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    padding: 20px 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
-button{
-  padding:10px 20px;
-  margin:10px;
-  cursor:pointer;
+.navbar h2 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+/* Main Container */
+.container {
+    width: 500px;
+    margin: 80px auto;
+    padding: 40px;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* Welcome Heading */
+.container h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+/* Buttons */
+.container button {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.container button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,123,255,0.4);
+}
+
+/* Click Effect */
+.container button:active {
+    transform: scale(0.97);
+}
+
+/* Page Background */
+:host {
+    display: block;
+    min-height: 100vh;
+    background: linear-gradient(to right, #e3f2fd, #f5f9ff);
+    padding-top: 1px;
 }
