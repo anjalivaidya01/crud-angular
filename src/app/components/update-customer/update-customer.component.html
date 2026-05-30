@@ -1,0 +1,59 @@
+<p>update-customer works!</p>
+<div class="container">
+
+  <div class="form-container">
+
+    <h2 class="form-title">Post Customer Details</h2>
+
+    <form [formGroup]="updateCustomerForm" (ngSubmit)="updateCustomer()">
+
+      <!-- NAME -->
+      <div class="form-group">
+
+        <label>Name :</label>
+
+        <input
+          type="text"
+          formControlName="name">
+
+       
+
+      </div>
+
+      <!-- EMAIL -->
+      <div class="form-group">
+
+        <label>Email :</label>
+
+        <input
+          type="email"
+          formControlName="email">
+
+        
+
+        
+
+      </div>
+
+      <!-- PHONE -->
+      <div class="form-group">
+
+        <label>Phone Number :</label>
+
+        <input
+          type="tel"
+          formControlName="phoneNo">
+
+       
+        
+
+      </div>
+
+      <button
+        type="submit" routerLink="/customer">Update </button>
+
+    </form>
+
+  </div>
+
+</div>
