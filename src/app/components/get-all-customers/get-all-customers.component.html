@@ -11,7 +11,9 @@
             <th>Name</th>
             <th>Email</th>
             <th>PhoneNo</th>
+            <th>Profile</th>
             <th>Action</th>
+            
 
         </tr>
     </thead>
@@ -20,6 +22,8 @@
             <td>{{customer.name}}</td>
             <td>{{customer.email}}</td>
             <td>{{customer.phoneNo}}</td>
+            <td>{{customer.profile}}</td>
+
             <td>
                   <button class="btn-update" [routerLink]="['/update-customer',customer.id]">Update</button>
                   <button class="btn-delete" (click)="deleteCustomer(customer.id)">Delete</button>

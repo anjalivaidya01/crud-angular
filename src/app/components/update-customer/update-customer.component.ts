@@ -32,6 +32,10 @@ export class UpdateCustomerComponent implements OnInit {
         phoneNo: ['', [
           Validators.required,
           Validators.pattern('[0-9]{10}')
+        ]],
+        profile: ['', [
+          Validators.required,
+          
         ]]
       });
     

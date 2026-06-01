@@ -1,82 +1,134 @@
 /* Page Background */
-body {
-    background: #f4f7fc;
-    font-family: 'Poppins', sans-serif;
-    padding: 20px;
+:host {
+    display: block;
+    min-height: 100vh;
+    padding: 30px;
+    background: linear-gradient(135deg, #f5f7fa, #dfe9f3);
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* Button Styling */
-.btn-delete,
-.btn-update,
-.btn-new {
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    color: white;
-    padding: 12px 22px;
+/* Heading */
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin: 25px 0;
+    font-size: 32px;
+}
+
+/* Top Buttons */
+.btn-new,
+button[routerLink="/"] {
+    padding: 12px 20px;
+    margin-right: 10px;
     border: none;
-    border-radius: 30px;
+    border-radius: 8px;
+    color: white;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 242, 254, 0.4);
     transition: all 0.3s ease;
-    margin-bottom: 20px;
-}
-.btn-delete,
-.bth-update,
-.btn-new:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0, 242, 254, 0.6);
 }
 
-/* Table Styling */
+/* New Customer Button */
+.btn-new {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.btn-new:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+/* Home Button */
+button[routerLink="/"] {
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+}
+
+button[routerLink="/"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+/* Table */
 table {
     width: 100%;
+    margin-top: 25px;
     border-collapse: collapse;
-    background: #fff;
-    border-radius: 15px;
+    background: white;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Table Header */
 thead {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #007bff, #00c6ff);
     color: white;
 }
 
 th {
-    padding: 16px;
+    padding: 15px;
     text-align: left;
     font-size: 16px;
-    letter-spacing: 0.5px;
 }
 
-/* Table Body */
+/* Table Data */
 td {
-    padding: 14px 16px;
-    font-size: 15px;
-    color: #444;
-    border-bottom: 1px solid #eee;
+    padding: 14px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
-/* Alternate Row Colors */
+/* Alternate Rows */
 tbody tr:nth-child(even) {
-    background-color: #f9fbff;
+    background-color: #f8f9fa;
 }
 
-/* Hover Effect */
-tbody tr {
+/* Row Hover */
+tbody tr:hover {
+    background-color: #eef7ff;
+    transition: 0.3s;
+}
+
+/* Update Button */
+.btn-update {
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 8px;
     transition: all 0.3s ease;
 }
 
-tbody tr:hover {
-    background: #eef5ff;
-    transform: scale(1.01);
-    cursor: pointer;
+.btn-update:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
 }
 
-/* Responsive Table */
-@media screen and (max-width: 768px) {
+/* Delete Button */
+.btn-delete {
+    background: linear-gradient(135deg, #dc3545, #ff4d6d);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+}
+
+/* Button Click Effect */
+button:active {
+    transform: scale(0.96);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
 
     table,
     thead,
@@ -85,7 +137,6 @@ tbody tr:hover {
     td,
     tr {
         display: block;
-        width: 100%;
     }
 
     thead {
@@ -95,25 +146,19 @@ tbody tr:hover {
     tr {
         margin-bottom: 15px;
         background: white;
-        border-radius: 12px;
+        border-radius: 10px;
         padding: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     }
 
     td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
         border: none;
+        padding: 10px;
     }
 
-    td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 15px;
-        width: 45%;
-        font-weight: bold;
-        text-align: left;
-        color: #667eea;
+    .btn-update,
+    .btn-delete {
+        width: 100%;
+        margin-top: 5px;
     }
 }

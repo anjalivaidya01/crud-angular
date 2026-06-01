@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { CustomerService } from 'src/app/service/customer.service';
 
 @Component({
@@ -33,6 +34,10 @@ export class PostCustomerComponent implements OnInit {
       phoneNo: ['', [
         Validators.required,
         Validators.pattern('[0-9]{10}')
+      ]],
+      profile: ['', [
+        Validators.required,
+        
       ]]
     });
   }

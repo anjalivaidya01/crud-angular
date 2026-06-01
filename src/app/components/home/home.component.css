@@ -1,21 +1,24 @@
 /* Full Page Background */
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+:host {
+    display: block;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Navbar */
 .navbar {
     background: linear-gradient(135deg, #007bff, #00c6ff);
-    color: white;
-    padding: 20px 40px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    padding: 18px 30px;
     text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .navbar h2 {
     margin: 0;
-    font-size: 28px;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
     letter-spacing: 1px;
 }
 
@@ -23,12 +26,12 @@ body {
 .container {
     width: 500px;
     margin: 80px auto;
+    background: white;
     padding: 40px;
-    text-align: center;
-    background: #ffffff;
     border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
 }
 
 .container:hover {
@@ -37,31 +40,31 @@ body {
 
 /* Welcome Heading */
 .container h1 {
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 35px;
+    font-size: 38px;
+    font-weight: bold;
 }
 
 /* Buttons */
 .container button {
-    display: block;
     width: 100%;
-    margin: 15px 0;
-    padding: 14px;
+    padding: 15px;
+    margin: 12px 0;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(135deg, #007bff, #00c6ff);
+    background: linear-gradient(135deg, #007bff, #00b4ff);
     color: white;
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 /* Hover Effect */
 .container button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0,123,255,0.4);
+    transform: scale(1.04);
+    box-shadow: 0 6px 18px rgba(0, 123, 255, 0.4);
 }
 
 /* Click Effect */
@@ -69,10 +72,28 @@ body {
     transform: scale(0.97);
 }
 
-/* Page Background */
-:host {
-    display: block;
-    min-height: 100vh;
-    background: linear-gradient(to right, #e3f2fd, #f5f9ff);
-    padding-top: 1px;
+/* Different Color for Second Button */
+.container button:last-child {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.container button:last-child:hover {
+    box-shadow: 0 6px 18px rgba(40, 167, 69, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 25px;
+        margin-top: 50px;
+    }
+
+    .container h1 {
+        font-size: 30px;
+    }
+
+    .navbar h2 {
+        font-size: 24px;
+    }
 }
