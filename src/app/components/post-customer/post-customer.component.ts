@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { CustomerService } from 'src/app/service/customer.service';
   styleUrls: ['./post-customer.component.css']
 })
 
-export class PostCustomerComponent implements OnInit {
+export class PostCustomerComponent  {
 
   postCustomerForm!: FormGroup;
 
@@ -49,9 +49,7 @@ export class PostCustomerComponent implements OnInit {
       return;
     }
 
-    this.customerService
-      .postCustomer(this.postCustomerForm.value)
-      .subscribe((resp) => {
+    this.customerService.postCustomer(this.postCustomerForm.value).subscribe((resp) => {
 
         console.log(resp);
 

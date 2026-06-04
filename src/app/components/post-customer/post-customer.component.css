@@ -118,3 +118,8 @@ button:active {
     font-size: 24px;
   }
 }
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}

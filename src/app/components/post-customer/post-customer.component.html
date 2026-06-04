@@ -19,6 +19,11 @@
           type="text"
           formControlName="name">
 
+          <div class="error"
+     *ngIf="postCustomerForm.get('name')?.touched &&
+            postCustomerForm.get('name')?.hasError('required')">
+  Name is required
+</div>
        
 
       </div>
@@ -31,6 +36,16 @@
         <input
           type="email"
           formControlName="email">
+           <div class="error"
+     *ngIf="postCustomerForm.get('email')?.touched &&
+            postCustomerForm.get('email')?.hasError('required')">
+  email is required
+</div>
+<div class="error"
+     *ngIf="postCustomerForm.get('email')?.touched &&
+            postCustomerForm.get('email')?.hasError('email')">
+  Enter a valid email
+</div>
 
 
        
@@ -45,13 +60,23 @@
           type="tel"
           formControlName="phoneNo">
 
-       
+       <div class="error"
+     *ngIf="postCustomerForm.get('phoneNo')?.touched &&
+            postCustomerForm.get('phoneNo')?.hasError('required')">
+  Phone number is required
+</div>
+
+<div class="error"
+     *ngIf="postCustomerForm.get('phoneNo')?.touched &&
+            postCustomerForm.get('phoneNo')?.hasError('pattern')">
+  Enter a valid 10-digit phone number
+</div>
 
        
 
       </div>
 
-      <!-- PHONE -->
+      <!-- profile -->
       <div class="form-group">
 
         <label>Customer profile :</label>
@@ -60,7 +85,14 @@
           type="tel"
           formControlName="profile">
 
-       
+       <div class="error"
+       *ngIf="postCustomerForm.get('profile')?.touched &&
+       postCustomerForm.get('profile')?.hasError('required')">
+
+       profile is required
+
+         
+       </div>
 
        
 

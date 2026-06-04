@@ -1,164 +1,139 @@
-/* Page Background */
-:host {
-    display: block;
-    min-height: 100vh;
-    padding: 30px;
-    background: linear-gradient(135deg, #f5f7fa, #dfe9f3);
-    font-family: 'Segoe UI', sans-serif;
-}
-
-/* Heading */
-h2 {
-    text-align: center;
-    color: #2c3e50;
-    margin: 25px 0;
-    font-size: 32px;
+/* Page Styling */
+body {
+  font-family: Arial, sans-serif;
 }
 
 /* Top Buttons */
 .btn-new,
 button[routerLink="/"] {
-    padding: 12px 20px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  padding: 10px 18px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-/* New Customer Button */
 .btn-new {
-    background: linear-gradient(135deg, #28a745, #20c997);
+  background-color: #28a745;
+  color: white;
 }
 
 .btn-new:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+  background-color: #218838;
 }
 
-/* Home Button */
 button[routerLink="/"] {
-    background: linear-gradient(135deg, #007bff, #00c6ff);
+  background-color: #007bff;
+  color: white;
 }
 
 button[routerLink="/"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+  background-color: #0056b3;
+}
+
+/* Search Box */
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.4);
+}
+
+/* Heading */
+h2 {
+  margin-top: 15px;
+  color: #333;
 }
 
 /* Table */
 table {
-    width: 100%;
-    margin-top: 25px;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background-color: white;
 }
 
-/* Table Header */
-thead {
-    background: linear-gradient(135deg, #007bff, #00c6ff);
-    color: white;
+table th {
+  background-color: #343a40;
+  color: white;
+  padding: 12px;
+  text-align: left;
 }
 
-th {
-    padding: 15px;
-    text-align: left;
-    font-size: 16px;
+table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Table Data */
-td {
-    padding: 14px;
-    border-bottom: 1px solid #e5e5e5;
+table tr:nth-child(even) {
+  background-color: #f8f9fa;
 }
 
-/* Alternate Rows */
-tbody tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-
-/* Row Hover */
-tbody tr:hover {
-    background-color: #eef7ff;
-    transition: 0.3s;
+table tr:hover {
+  background-color: #f1f1f1;
 }
 
 /* Update Button */
 .btn-update {
-    background: linear-gradient(135deg, #ffc107, #ff9800);
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-right: 8px;
-    transition: all 0.3s ease;
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  padding: 7px 12px;
+  margin-right: 8px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .btn-update:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+  background-color: #e0a800;
 }
 
 /* Delete Button */
 .btn-delete {
-    background: linear-gradient(135deg, #dc3545, #ff4d6d);
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .btn-delete:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+  background-color: #c82333;
 }
 
-/* Button Click Effect */
-button:active {
-    transform: scale(0.96);
+/* Customer Not Found */
+.not-found {
+  color: #dc3545;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
 
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
-        display: block;
-    }
+  table {
+    font-size: 14px;
+  }
 
-    thead {
-        display: none;
-    }
+  input[type="text"] {
+    width: 100%;
+  }
 
-    tr {
-        margin-bottom: 15px;
-        background: white;
-        border-radius: 10px;
-        padding: 10px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    td {
-        border: none;
-        padding: 10px;
-    }
-
-    .btn-update,
-    .btn-delete {
-        width: 100%;
-        margin-top: 5px;
-    }
+  .btn-new,
+  button[routerLink="/"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }

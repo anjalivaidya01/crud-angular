@@ -34,4 +34,8 @@ export class CustomerService {
        return this.http.delete(BASIC_URL+"/api/customer/" +id)
    }
 
+    searchCustomer(name: string): Observable<any> {
+    return this.http.get(BASIC_URL + "/api/customers/search?name=" + name);
+  }
+
 }
