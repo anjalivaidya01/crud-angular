@@ -33,7 +33,7 @@ export class UpdateCustomerComponent implements OnInit {
           Validators.required,
           Validators.pattern('[0-9]{10}')
         ]],
-        profile: ['', [
+        role: ['', [
           Validators.required,
           
         ]]

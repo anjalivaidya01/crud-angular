@@ -35,7 +35,7 @@ export class PostCustomerComponent  {
         Validators.required,
         Validators.pattern('[0-9]{10}')
       ]],
-      profile: ['', [
+      role: ['', [
         Validators.required,
         
       ]]

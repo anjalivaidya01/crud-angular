@@ -76,20 +76,20 @@
 
       </div>
 
-      <!-- profile -->
+      <!-- role -->
       <div class="form-group">
 
-        <label>Customer profile :</label>
+        <label>Customer role :</label>
 
         <input
           type="tel"
-          formControlName="profile">
+          formControlName="role">
 
        <div class="error"
-       *ngIf="postCustomerForm.get('profile')?.touched &&
-       postCustomerForm.get('profile')?.hasError('required')">
+       *ngIf="postCustomerForm.get('role')?.touched &&
+       postCustomerForm.get('role')?.hasError('required')">
 
-       profile is required
+       role is required
 
          
        </div>
