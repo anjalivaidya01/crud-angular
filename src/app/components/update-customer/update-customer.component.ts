@@ -12,6 +12,7 @@ export class UpdateCustomerComponent implements OnInit {
 
   updateCustomerForm! : FormGroup;
   id : number = this.activatedRoute.snapshot.params["id"];
+  role :any =''
 
   constructor(private activatedRoute : ActivatedRoute,
     private service :CustomerService,
@@ -20,6 +21,9 @@ export class UpdateCustomerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+     this.role = localStorage.getItem("role");
+
     this.updateCustomerForm = this.fb.group({
   
         name: ['', Validators.required],
@@ -33,6 +37,14 @@ export class UpdateCustomerComponent implements OnInit {
           Validators.required,
           Validators.pattern('[0-9]{10}')
         ]],
+        username: ['', [
+        Validators.required,
+        
+      ]],
+      password: ['', [
+        Validators.required,
+        
+      ]],
         role: ['', [
           Validators.required,
           

@@ -1,20 +1,15 @@
-
 <button class="btn-new" routerLink="/customer">Post New Customer </button>
-<button routerLink="/">
-  Home
+<button routerLink="/home">
+    Home
 </button>
 
 <br><br>
 
 
-  <input
-  type="text"
-  placeholder="Search customer by name"
-  [(ngModel)]="searchText"
-  (input)="searchCustomer()">
+<input type="text" placeholder="Search customer by name" [(ngModel)]="searchText" (input)="searchCustomer()">
 
 <div *ngIf="customerNotFound" class="not-found">
-  Customer Not Found
+    Customer Not Found
 </div>
 
 
@@ -27,7 +22,7 @@
             <th>PhoneNo</th>
             <th>role</th>
             <th>Action</th>
-            
+
 
         </tr>
     </thead>
@@ -38,9 +33,9 @@
             <td>{{customer.phoneNo}}</td>
             <td>{{customer.role}}</td>
 
-            <td>
-                  <button class="btn-update" [routerLink]="['/update-customer',customer.id]">Update</button>
-                  <button class="btn-delete" (click)="deleteCustomer(customer.id)">Delete</button>
+            <td *ngIf="role=='ADMIN'">
+                <button class="btn-update" [routerLink]="['/update-customer',customer.id]">Update</button>
+                <button class="btn-delete" (click)="deleteCustomer(customer.id)">Delete</button>
 
             </td>
         </tr>

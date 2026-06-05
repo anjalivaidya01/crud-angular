@@ -38,4 +38,21 @@ export class CustomerService {
     return this.http.get(BASIC_URL + "/api/customers/search?name=" + name);
   }
 
+ register(user:any){
+
+  return this.http.post(
+    "http://localhost:8080/api/register",
+    user
+  );
+
+}
+
+login(customer:any){
+
+  return this.http.post(
+    "http://localhost:8080/api/login",
+    customer
+  );
+
+}
 }

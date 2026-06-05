@@ -6,41 +6,39 @@ import { CustomerService } from 'src/app/service/customer.service';
   templateUrl: './get-all-customers.component.html',
   styleUrls: ['./get-all-customers.component.css']
 })
-export class GetAllCustomersComponent  {
+export class GetAllCustomersComponent {
 
-  customers:any = [];
+  customers: any = [];
   searchText = '';
-  customerNotFound:boolean =false; 
+  customerNotFound: boolean = false;
+  role: any = '';
 
   constructor(private customerService: CustomerService) { }
+
 
   ngOnInit() {
     // this.getAllCustomers();
     this.loadCustomer();
-    
+    this.role = localStorage.getItem('role');
+
   }
 
-  loadCustomer(){
-    this.customerService.getAllCustomers().subscribe((resp)=>{
+  loadCustomer() {
+    this.customerService.getAllCustomers().subscribe((resp) => {
       console.log(resp);
       this.customers = resp;
-      this.customerNotFound= false;
+      this.customerNotFound = false;
     })
   }
 
-  // deleteCustomer(id:number){
-  //   this.customerService.deleteCustomer(id).subscribe((resp)=>{
-  //      console.log(resp);
-  //      this.getAllCustomers();
-  //   })
-  // }
+
 
   deleteCustomer(id: number) {
 
     const confirmDelete = confirm("Are you sure you want to delete this customer?");
 
     if (confirmDelete) {
-      
+
       this.customerService.deleteCustomer(id).subscribe(() => {
         alert("Customer deleted successfully");
         this.loadCustomer();
@@ -49,30 +47,30 @@ export class GetAllCustomersComponent  {
   }
 
 
-  
 
 
-searchCustomer() {
 
-  // If input is empty, show all customers
-  if (!this.searchText.trim()) {
+  searchCustomer() {
 
-    this.customerNotFound = false;
+    // If input is empty, show all customers
+    if (!this.searchText.trim()) {
 
-    this.loadCustomer();
+      this.customerNotFound = false;
 
-    return;
+      this.loadCustomer();
+
+      return;
+    }
+
+    this.customerService
+      .searchCustomer(this.searchText)
+      .subscribe((resp: any[]) => {
+
+        this.customers = resp;
+
+        this.customerNotFound = resp.length === 0;
+      });
   }
 
-  this.customerService
-    .searchCustomer(this.searchText)
-    .subscribe((resp: any[]) => {
-
-      this.customers = resp;
-
-      this.customerNotFound = resp.length === 0;
-    });
 }
-
-  }
 

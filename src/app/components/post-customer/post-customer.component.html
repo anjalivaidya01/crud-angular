@@ -1,110 +1,144 @@
-
-
- 
 <div class="container">
-     
 
-  <div class="form-container">
+    <div class="form-container">
 
-    <h2 class="form-title">Post Customer Details</h2>
+        <h2 class="form-title">Post Customer Details</h2>
 
-    <form [formGroup]="postCustomerForm">
+        <form [formGroup]="postCustomerForm">
 
-      <!-- NAME -->
-      <div class="form-group">
+            <!-- NAME -->
+            <div class="form-group">
 
-        <label>Name :</label>
+                <label>Name :</label>
+
+                <input type="text" formControlName="name">
+
+                <div class="error" *ngIf="postCustomerForm.get('name')?.touched &&
+                    postCustomerForm.get('name')?.hasError('required')">
+                    Name is required
+                </div>
+
+            </div>
+
+            <!-- EMAIL -->
+            <div class="form-group">
+
+                <label>Email :</label>
+
+                <input type="email" formControlName="email">
+
+                <div class="error" *ngIf="postCustomerForm.get('email')?.touched &&
+                    postCustomerForm.get('email')?.hasError('required')">
+                    Email is required
+                </div>
+
+                <div class="error" *ngIf="postCustomerForm.get('email')?.touched &&
+                    postCustomerForm.get('email')?.hasError('email')">
+                    Enter a valid email
+                </div>
+
+            </div>
+
+            <!-- PHONE -->
+            <div class="form-group">
+
+                <label>Phone Number :</label>
+
+                <input type="tel" formControlName="phoneNo">
+
+                <div class="error" *ngIf="postCustomerForm.get('phoneNo')?.touched &&
+                    postCustomerForm.get('phoneNo')?.hasError('required')">
+                    Phone number is required
+                </div>
+
+                <div class="error" *ngIf="postCustomerForm.get('phoneNo')?.touched &&
+                    postCustomerForm.get('phoneNo')?.hasError('pattern')">
+                    Enter a valid 10-digit phone number
+                </div>
+
+            </div>
+
+            <!-- USERNAME -->
+            <div class="form-group">
+
+                <label>Username :</label>
+
+                <input type="text" formControlName="username">
+
+                <div class="error" *ngIf="postCustomerForm.get('username')?.touched &&
+                    postCustomerForm.get('username')?.hasError('required')">
+                    Username is required
+                </div>
+
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="form-group">
+
+                <label>Password :</label>
+
+                <input type="password" formControlName="password">
+
+                <div class="error" *ngIf="postCustomerForm.get('password')?.touched &&
+                    postCustomerForm.get('password')?.hasError('required')">
+                    Password is required
+                </div>
+
+            </div>
+
+            <!-- PROFILE -->
+            <!-- <div class="form-group">
+
+        <label>Customer Profile :</label>
 
         <input
           type="text"
-          formControlName="name">
+          formControlName="profile">
 
-          <div class="error"
-     *ngIf="postCustomerForm.get('name')?.touched &&
-            postCustomerForm.get('name')?.hasError('required')">
-  Name is required
-</div>
-       
+      </div> -->
 
-      </div>
+            <!-- ROLE -->
+            <div class="form-group">
 
-      <!-- EMAIL -->
-      <div class="form-group">
+                <label>Role :</label>
 
-        <label>Email :</label>
+                <select formControlName="role">
 
-        <input
-          type="email"
-          formControlName="email">
-           <div class="error"
-     *ngIf="postCustomerForm.get('email')?.touched &&
-            postCustomerForm.get('email')?.hasError('required')">
-  email is required
-</div>
-<div class="error"
-     *ngIf="postCustomerForm.get('email')?.touched &&
-            postCustomerForm.get('email')?.hasError('email')">
-  Enter a valid email
-</div>
+                    <option value="">Select Role</option>
+
+                    <option value="ADMIN">ADMIN</option>
+
+                    <option value="USER">USER</option>
+
+                </select>
+
+                <div class="error" *ngIf="postCustomerForm.get('role')?.touched &&
+                    postCustomerForm.get('role')?.hasError('required')">
+                    Role is required
+                </div>
+
+            </div>
+
+            <!-- BUTTONS -->
+            <button type="button" (click)="postCustomer()">
+
+                Post
+
+            </button>
+            <!-- *ngIf="role=='ADMIN'" -->
 
 
-       
-      </div>
+            <br>
+            <br>
 
-      <!-- PHONE -->
-      <div class="form-group">
+            <button type="button" routerLink="/home">
 
-        <label>Phone Number :</label>
+                Home
 
-        <input
-          type="tel"
-          formControlName="phoneNo">
+            </button>
 
-       <div class="error"
-     *ngIf="postCustomerForm.get('phoneNo')?.touched &&
-            postCustomerForm.get('phoneNo')?.hasError('required')">
-  Phone number is required
-</div>
+        </form>
 
-<div class="error"
-     *ngIf="postCustomerForm.get('phoneNo')?.touched &&
-            postCustomerForm.get('phoneNo')?.hasError('pattern')">
-  Enter a valid 10-digit phone number
-</div>
-
-       
-
-      </div>
-
-      <!-- role -->
-      <div class="form-group">
-
-        <label>Customer role :</label>
-
-        <input
-          type="tel"
-          formControlName="role">
-
-       <div class="error"
-       *ngIf="postCustomerForm.get('role')?.touched &&
-       postCustomerForm.get('role')?.hasError('required')">
-
-       role is required
-
-         
-       </div>
-
-       
-
-      </div>
-
-      <button type="submit" (click)="postCustomer()"> Post</button>
-      <br>
-      <br>
-      <button routerLink="/" > Home </button>
-
-    </form>
-
-  </div>
+    </div>
 
 </div>

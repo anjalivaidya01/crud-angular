@@ -1,0 +1,33 @@
+<div class="login-container">
+
+    <h2>Customer Management System</h2>
+
+    <input
+        type="text"
+        placeholder="Username"
+        [(ngModel)]="username">
+
+    <br><br>
+
+    <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="password">
+
+    <br><br>
+
+    <button (click)="login()">
+
+        Login
+
+    </button>
+
+    <br><br>
+
+    <a routerLink="/register">
+
+        New User? Register Here
+
+    </a>
+
+</div>

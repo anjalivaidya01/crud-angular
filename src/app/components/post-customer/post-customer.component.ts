@@ -13,6 +13,7 @@ import { CustomerService } from 'src/app/service/customer.service';
 export class PostCustomerComponent  {
 
   postCustomerForm!: FormGroup;
+role:any='';
 
   constructor(
     private customerService: CustomerService,
@@ -20,8 +21,9 @@ export class PostCustomerComponent  {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
 
+     this.role = localStorage.getItem("role");
     this.postCustomerForm = this.fb.group({
 
       name: ['', Validators.required],
@@ -34,6 +36,14 @@ export class PostCustomerComponent  {
       phoneNo: ['', [
         Validators.required,
         Validators.pattern('[0-9]{10}')
+      ]],
+      username: ['', [
+        Validators.required,
+        
+      ]],
+      password: ['', [
+        Validators.required,
+        
       ]],
       role: ['', [
         Validators.required,
@@ -55,7 +65,7 @@ export class PostCustomerComponent  {
 
         alert("Customer Added Successfully");
 
-        this.router.navigateByUrl("/");
+        this.router.navigateByUrl("/home");
       });
   }
 }

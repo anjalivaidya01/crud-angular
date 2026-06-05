@@ -4,12 +4,17 @@ import { PostCustomerComponent } from './components/post-customer/post-customer.
 import { GetAllCustomersComponent } from './components/get-all-customers/get-all-customers.component';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  {path:'',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
+  {path:'home',component:HomeComponent},
 {path:'customer',component:PostCustomerComponent},
 {path:'allCustomer',component:GetAllCustomersComponent},
-{path:'update-customer/:id',component:UpdateCustomerComponent}
+{path:'update-customer/:id',component:UpdateCustomerComponent},
+
 ];
 
 @NgModule({

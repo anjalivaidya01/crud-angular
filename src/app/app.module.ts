@@ -8,7 +8,9 @@ import { GetAllCustomersComponent } from './components/get-all-customers/get-all
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './components/home/home.component'
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HomeComponent } from './components/home/home.component'
     PostCustomerComponent,
     GetAllCustomersComponent,
     UpdateCustomerComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent
    
   ],
   imports: [
