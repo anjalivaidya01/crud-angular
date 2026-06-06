@@ -1,98 +1,83 @@
-
 <div class="container">
 
   <div class="form-container">
 
-    <h2 class="form-title">Post Customer Details</h2>
+    <h2 class="form-title">Update Customer Details</h2>
 
-    <form [formGroup]="updateCustomerForm" (ngSubmit)="updateCustomer()">
+    <form [formGroup]="updateCustomerForm">
 
       <!-- NAME -->
       <div class="form-group">
-
         <label>Name :</label>
-
         <input
           type="text"
-          formControlName="name">
-
-       
-
+          formControlName="name"
+          [readonly]="!isEditMode">
       </div>
 
       <!-- EMAIL -->
       <div class="form-group">
-
         <label>Email :</label>
-
         <input
           type="email"
-          formControlName="email">
-
-        
-
-        
-
+          formControlName="email"
+          [readonly]="!isEditMode">
       </div>
 
       <!-- PHONE -->
       <div class="form-group">
-
         <label>Phone Number :</label>
-
         <input
           type="tel"
-          formControlName="phoneNo">
-
-       
-        
-
+          formControlName="phoneNo"
+          [readonly]="!isEditMode">
       </div>
 
-
-       <!-- username -->
+      <!-- USERNAME -->
       <div class="form-group">
-
         <label>Username :</label>
-
         <input
-          type="username"
-          formControlName="username">
-
-       
-
+          type="text"
+          formControlName="username"
+          [readonly]="!isEditMode">
       </div>
 
-
-       <!-- password -->
+      <!-- PASSWORD -->
       <div class="form-group">
-
         <label>Password :</label>
-
         <input
           type="password"
-          formControlName="password">
-
-       
-
+          formControlName="password"
+          [readonly]="!isEditMode">
       </div>
 
-
+      <!-- ROLE -->
       <div class="form-group">
-
-        <label>role :</label>
-
+        <label>Role :</label>
         <input
-          type="tel"
-          formControlName="role">
-
-       
-        
-
+          type="text"
+          formControlName="role"
+          [readonly]="!isEditMode">
       </div>
 
-      <button
-        type="submit" routerLink="/customer" (click)="updateCustomer()">Update </button>
+      <div class="button-group">
+
+        <!-- Edit Button -->
+        <button
+          type="button"
+          (click)="enableEdit()">
+          Edit
+        </button>
+
+        <!-- Update Button -->
+        <button
+          type="submit"
+          (click)="updateCustomer()"
+          [disabled]="!isEditMode">
+          Update
+        </button>
+
+      </div>
 
     </form>
 

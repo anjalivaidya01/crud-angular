@@ -162,3 +162,48 @@ tbody tr:hover {
         margin-bottom: 10px;
     }
 }
+.pagination{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.pagination button{
+
+    padding:8px 15px;
+
+    border:none;
+
+    background:#007bff;
+
+    color:white;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+}
+
+.pagination button:disabled{
+
+    background:gray;
+
+    cursor:not-allowed;
+
+}
+
+.pagination span{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}

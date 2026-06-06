@@ -40,19 +40,13 @@ export class CustomerService {
 
  register(user:any){
 
-  return this.http.post(
-    "http://localhost:8080/api/register",
-    user
-  );
+  return this.http.post(BASIC_URL+ "/api/register",user);
 
 }
 
 login(customer:any){
 
-  return this.http.post(
-    "http://localhost:8080/api/login",
-    customer
-  );
+  return this.http.post(BASIC_URL+"/api/login",customer);
 
 }
 }

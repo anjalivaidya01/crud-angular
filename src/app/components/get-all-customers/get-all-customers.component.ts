@@ -13,6 +13,15 @@ export class GetAllCustomersComponent {
   customerNotFound: boolean = false;
   role: any = '';
 
+  
+pagedCustomers: any[] = [];
+
+currentPage: number = 1;
+pageSize: number = 5;
+
+
+
+
   constructor(private customerService: CustomerService) { }
 
 
@@ -23,13 +32,58 @@ export class GetAllCustomersComponent {
 
   }
 
+  // loadCustomer() {
+  //   this.customerService.getAllCustomers().subscribe((resp) => {
+  //     console.log(resp);
+  //     this.customers = resp;
+  //     this.customerNotFound = false;
+  //   })
+  // }
   loadCustomer() {
-    this.customerService.getAllCustomers().subscribe((resp) => {
-      console.log(resp);
-      this.customers = resp;
-      this.customerNotFound = false;
-    })
+
+  this.customerService.getAllCustomers().subscribe((resp:any[]) => {
+
+    this.customers = resp;
+
+    this.customerNotFound = false;
+
+    this.updatePage();
+
+  });
+
+}updatePage() {
+
+  const startIndex = (this.currentPage - 1) * this.pageSize;
+
+  const endIndex = startIndex + this.pageSize;
+
+  this.pagedCustomers = this.customers.slice(startIndex, endIndex);
+
+}
+
+previousPage() {
+
+  if (this.currentPage > 1) {
+
+    this.currentPage--;
+
+    this.updatePage();
+
   }
+
+}
+
+nextPage() {
+
+  if (this.currentPage * this.pageSize < this.customers.length) {
+
+    this.currentPage++;
+
+    this.updatePage();
+
+  }
+
+}
 
 
 
@@ -50,27 +104,53 @@ export class GetAllCustomersComponent {
 
 
 
+  // searchCustomer() {
+
+  //   // If input is empty, show all customers
+  //   if (!this.searchText.trim()) {
+
+  //     this.customerNotFound = false;
+
+  //     this.loadCustomer();
+
+  //     return;
+  //   }
+
+  //   this.customerService
+  //     .searchCustomer(this.searchText)
+  //     .subscribe((resp: any[]) => {
+
+  //       this.customers = resp;
+
+  //       this.customerNotFound = resp.length === 0;
+  //     });
+  // }
+
   searchCustomer() {
 
-    // If input is empty, show all customers
-    if (!this.searchText.trim()) {
+  if (!this.searchText.trim()) {
 
-      this.customerNotFound = false;
+    this.loadCustomer();
 
-      this.loadCustomer();
+    return;
 
-      return;
-    }
+  }
 
-    this.customerService
+  this.customerService
       .searchCustomer(this.searchText)
-      .subscribe((resp: any[]) => {
+      .subscribe((resp:any[]) => {
 
         this.customers = resp;
 
         this.customerNotFound = resp.length === 0;
+
+        this.currentPage = 1;
+
+        this.updatePage();
+
       });
-  }
+
+}
 
 }
 

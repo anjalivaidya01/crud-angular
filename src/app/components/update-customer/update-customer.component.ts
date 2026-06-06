@@ -13,6 +13,7 @@ export class UpdateCustomerComponent implements OnInit {
   updateCustomerForm! : FormGroup;
   id : number = this.activatedRoute.snapshot.params["id"];
   role :any =''
+  isEditMode: boolean = false;
 
   constructor(private activatedRoute : ActivatedRoute,
     private service :CustomerService,
@@ -60,13 +61,26 @@ export class UpdateCustomerComponent implements OnInit {
       this.updateCustomerForm.patchValue(resp);
     })
   }
+
+  enableEdit() {
+    this.isEditMode = true;
+  }
   
   updateCustomer() {
+
+     if (!this.isEditMode) {
+      return;
+    }
 
   this.service.updateCustomer(this.id,this.updateCustomerForm.value).subscribe((resp:any)=>{
     console.log(resp);
     if(resp.id != null){
       this.router.navigateByUrl("/allCustomer");
+
+      console.log("Customer Updated");
+
+    // Disable editing again after update
+    this.isEditMode = false;
 
     }
   })

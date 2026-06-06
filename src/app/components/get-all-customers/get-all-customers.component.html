@@ -27,7 +27,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let customer of customers">
+        <tr *ngFor="let customer of pagedCustomers">
             <td>{{customer.name}}</td>
             <td>{{customer.email}}</td>
             <td>{{customer.phoneNo}}</td>
@@ -41,3 +41,31 @@
         </tr>
     </tbody>
 </table>
+
+<br>
+
+<div class="pagination" *ngIf="customers.length > 0">
+
+    <button
+        (click)="previousPage()"
+        [disabled]="currentPage == 1">
+
+        Previous
+
+    </button>
+
+    <span>
+
+        Page {{currentPage}}
+
+    </span>
+
+    <button
+        (click)="nextPage()"
+        [disabled]="currentPage * pageSize >= customers.length">
+
+        Next
+
+    </button>
+
+</div>
